@@ -28,3 +28,10 @@ function AddressBook() {
     return false;
   };
   
+  AddressBook.prototype.deleteContact = function (id) {
+    if (this.contacts[id] === undefined) {
+      return false;
+    }
+    delete this.contacts[id];
+    return true;
+  };

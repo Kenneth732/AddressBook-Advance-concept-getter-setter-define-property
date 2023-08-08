@@ -65,3 +65,21 @@ input[type="submit"]:hover {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+.contact p {
+    margin: 5px 0;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}

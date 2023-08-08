@@ -51,3 +51,7 @@ function AddressBook() {
     return false; 
   };
   
+  function Contact(firstName, lastName, phoneNumber, email) {
+ 
+  }
+  

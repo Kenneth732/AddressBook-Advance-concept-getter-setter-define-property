@@ -112,3 +112,15 @@ function AddressBook() {
     }
   }
   
+  // Function to delete a contact
+  function deleteContact(contactId) {
+    const result = confirm('Are you sure you want to delete this contact?');
+    if (result) {
+      const deleted = addressBook.deleteContact(contactId);
+      if (deleted) {
+        displayContacts(addressBook);
+      } else {
+        alert('Contact not found.');
+      }
+    }
+  }

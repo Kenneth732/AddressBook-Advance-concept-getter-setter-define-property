@@ -52,6 +52,36 @@ function AddressBook() {
   };
   
   function Contact(firstName, lastName, phoneNumber, email) {
- 
+    Object.defineProperty(this, "firstName", {
+      value: firstName,
+      writable: true
+    })
+  
+    Object.defineProperty(this, "lastName", {
+      value: lastName,
+      writable: true
+    })
+  
+    Object.defineProperty(this, "phoneNumber", {
+      value: phoneNumber,
+      writable: true
+    })
+  
+    Object.defineProperty(this, 'email', {
+      value: email,
+      writable: true
+    })
+
+    Object.defineProperty(this, "fullName", {
+      get: function() {
+        return this.firstName + " " + this.lastName
+      },
+      set: function(value) {
+        const parts = value.split(" ");
+        this.firstName = parts[0]
+        this.lastName = parts[1]
+      },
+      enumerable: true,
+    });
   }
   

@@ -89,3 +89,26 @@ function AddressBook() {
     return this.firstName + " " + this.lastName
   }
   
+  // Function to edit a contact
+  function editContact(contactId) {
+    const contact = addressBook.findContact(contactId);
+    if (contact) {
+      const updatedFirstName = prompt('Enter the new first name:', contact.firstName);
+      const updatedLastName = prompt('Enter the new last name:', contact.lastName);
+      const updatedPhoneNumber = prompt('Enter the new phone number:', contact.phoneNumber);
+      const updatedEmail = prompt('Enter the new email address:', contact.email);
+  
+      const updatedData = {
+        firstName: updatedFirstName,
+        lastName: updatedLastName,
+        phoneNumber: updatedPhoneNumber,
+        email: updatedEmail,
+      };
+  
+      addressBook.editContact(contactId, updatedData);
+      displayContacts(addressBook);
+    } else {
+      alert('Contact not found.');
+    }
+  }
+  

@@ -131,7 +131,7 @@ function AddressBook() {
   
     for (const contactId in addressBook.contacts) {
       const contact = addressBook.contacts[contactId];
-      const { firstName, lastName, phoneNumber, email } = contact; // Use "email" here
+      const { firstName, lastName, phoneNumber, email } = contact; 
   
       const contactElement = document.createElement('div');
       contactElement.innerHTML = `
@@ -144,3 +144,27 @@ function AddressBook() {
       contactContainer.appendChild(contactElement);
     }
   }
+  
+  let addressBook = new AddressBook();
+  
+  function handleFormSubmit(event) {
+    event.preventDefault();
+  
+    var firstName = document.getElementById("firstNameInput").value;
+    var lastName = document.getElementById("lastNameInput").value;
+    var phoneNumber = document.getElementById("phoneInput").value;
+    var email = document.getElementById("emailInput").value;
+    let newContact = new Contact(firstName, lastName, phoneNumber, email)
+    addressBook.addContact(newContact)
+  
+    // Clear the input fields after adding a new contact
+    document.getElementById("firstNameInput").value = "";
+    document.getElementById("lastNameInput").value = "";
+    document.getElementById("phoneInput").value = "";
+    document.getElementById("emailInput").value = "";
+  
+    displayContacts(addressBook);
+  }
+  
+  document.querySelector('#form').addEventListener('submit', handleFormSubmit); 
+  

@@ -35,3 +35,19 @@ function AddressBook() {
     delete this.contacts[id];
     return true;
   };
+  
+  // Adding an editContact method to AddressBook prototype
+  AddressBook.prototype.editContact = function (id, updatedData) {
+    if (this.contacts[id] !== undefined) {
+      const contact = this.contacts[id];
+      // Loop through the keys in updatedData and update the contact's properties
+      for (const key in updatedData) {
+        if (contact.hasOwnProperty(key)) {
+          contact[key] = updatedData[key];
+        }
+      }
+      return true; 
+    }
+    return false; 
+  };
+  

@@ -124,3 +124,23 @@ function AddressBook() {
       }
     }
   }
+  
+  function displayContacts(addressBook) {
+    const contactContainer = document.querySelector('#contacts');
+    contactContainer.innerHTML = '';
+  
+    for (const contactId in addressBook.contacts) {
+      const contact = addressBook.contacts[contactId];
+      const { firstName, lastName, phoneNumber, email } = contact; // Use "email" here
+  
+      const contactElement = document.createElement('div');
+      contactElement.innerHTML = `
+        <h3>${firstName}</h3>
+        <h3>${lastName}</h3>
+        <p>Phone: ${phoneNumber}</p>
+        <p>Email: ${email}</p> <!-- Use "email" here -->
+        <button onclick='editContact(${contactId})'>Edit</button>
+        <button onclick='deleteContact(${contactId})'>Delete</button>`;
+      contactContainer.appendChild(contactElement);
+    }
+  }
